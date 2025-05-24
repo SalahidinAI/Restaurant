@@ -23,34 +23,19 @@ class MenuAPIView(generics.ListAPIView):
     serializer_class = MenuSerializer
 
 
-class CategoryAPIView(generics.ListAPIView):
+class CategoryListAPIView(generics.ListAPIView):
     queryset = Category.objects.all()
-    serializer_class = CategorySerializer
+    serializer_class = CategoryListSerializer
+
+
+class CategoryDetailAPIView(generics.RetrieveAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategoryDetailSerializer
 
 
 class MealAPIView(generics.ListAPIView):
     queryset = Meal.objects.all()
     serializer_class = MealSerializer
-
-
-class MealImageAPIView(generics.ListAPIView):
-    queryset = MealImage.objects.all()
-    serializer_class = MealImageSerializer
-
-
-class SupplementItemAPIView(generics.ListAPIView):
-    queryset = SupplementItem.objects.all()
-    serializer_class = SupplementItemSerializer
-
-
-class SupplementAPIView(generics.ListAPIView):
-    queryset = Supplement.objects.all()
-    serializer_class = SupplementSerializer
-
-
-class ImageAPIView(generics.ListAPIView):
-    queryset = Image.objects.all()
-    serializer_class = ImageSerializer
 
 
 class RestaurantImageAPIView(generics.ListAPIView):
@@ -61,11 +46,6 @@ class RestaurantImageAPIView(generics.ListAPIView):
 class RestaurantInfoAPIView(generics.ListAPIView):
     queryset = RestaurantInfo.objects.all()
     serializer_class = RestaurantInfoSerializer
-
-
-class ScheduleAPIView(generics.ListAPIView):
-    queryset = Schedule.objects.all()
-    serializer_class = ScheduleSerializer
 
 
 class ContactAPIView(generics.ListAPIView):

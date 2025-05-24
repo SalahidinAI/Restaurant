@@ -38,7 +38,7 @@ class BestSeller(models.Model):
 
 class BestSellerImage(models.Model):
     image = models.ImageField(upload_to='best_seller_images/')
-    best_seller = models.ForeignKey(BestSeller, on_delete=models.CASCADE)
+    best_seller = models.ForeignKey(BestSeller, on_delete=models.CASCADE, related_name='best_photos')
 
     def __str__(self):
         return f'{self.best_seller}'
@@ -63,8 +63,8 @@ class Meal(models.Model):
     title = models.CharField(max_length=32)
     description = models.TextField()
     ingredient = models.TextField()
-    price = models.PositiveSmallIntegerField()
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='meals')
     menu = models.ForeignKey(Menu, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -73,7 +73,7 @@ class Meal(models.Model):
 
 class MealImage(models.Model):
     image = models.ImageField(upload_to='meal_images/')
-    meal = models.ForeignKey(Meal, on_delete=models.CASCADE)
+    meal = models.ForeignKey(Meal, on_delete=models.CASCADE, related_name='meal_images')
 
     def __str__(self):
         return f'{self.meal}'
@@ -81,7 +81,7 @@ class MealImage(models.Model):
 
 class Supplement(models.Model):
     supplement_name = models.CharField(max_length=32)
-    meal = models.ForeignKey(Meal, on_delete=models.CASCADE)
+    meal = models.ForeignKey(Meal, on_delete=models.CASCADE, related_name='supplements')
 
     def __str__(self):
         return f'{self.meal}'
@@ -89,8 +89,8 @@ class Supplement(models.Model):
 
 class SupplementItem(models.Model):
     item = models.CharField(max_length=32)
-    price = models.PositiveSmallIntegerField()
-    supplement = models.ForeignKey(Supplement, on_delete=models.CASCADE)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+    supplement = models.ForeignKey(Supplement, on_delete=models.CASCADE, related_name='items')
 
     def __str__(self):
         return f'{self.item}'
@@ -105,7 +105,7 @@ class RestaurantImage(models.Model):
 
 class Image(models.Model):
     image = models.ImageField(upload_to='restaurant_images/')
-    restaurant = models.ForeignKey(RestaurantImage, on_delete=models.CASCADE)
+    restaurant = models.ForeignKey(RestaurantImage, on_delete=models.CASCADE, related_name='images')
 
     def __str__(self):
         return f'{self.restaurant}'
@@ -137,7 +137,7 @@ class Schedule(models.Model):
     end_time = models.TimeField()
     start_day = models.ForeignKey(Day, on_delete=models.CASCADE, related_name='day_start')
     end_day = models.ForeignKey(Day, on_delete=models.CASCADE, related_name='day_end')
-    restaurant = models.ForeignKey(RestaurantInfo, on_delete=models.CASCADE)
+    restaurant = models.ForeignKey(RestaurantInfo, on_delete=models.CASCADE, related_name='schedule')
 
     def __str__(self):
         return f'{self.restaurant}'
