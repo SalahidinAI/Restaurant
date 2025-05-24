@@ -1,6 +1,7 @@
 asgiref==3.8.1
 click==8.2.1
 Django==5.2.1
+django-cors-headers==4.7.0
 django-modeltranslation==0.19.14
 django-multiselectfield==0.1.13
 django-nested-admin==4.1.1
