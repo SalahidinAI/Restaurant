@@ -48,6 +48,6 @@ class RestaurantInfoAPIView(generics.ListAPIView):
     serializer_class = RestaurantInfoSerializer
 
 
-class ContactAPIView(generics.ListAPIView):
+class ContactAPIView(generics.CreateAPIView):
     queryset = Contact.objects.all()
     serializer_class = ContactSerializer
