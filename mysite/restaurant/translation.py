@@ -1,31 +1,42 @@
-from .models import (Main, About, Meal, SupplementItem,
-                     RestaurantInfo, AboutUs, BestSeller)
+from .models import (Main, Menu, Day, Meal, Category, SupplementItem,
+                     RestaurantImage, Supplement, RestaurantInfo, AboutUs,
+                     BestSeller)
 from modeltranslation.translator import TranslationOptions,register
 
 
 @register(Main)
 class MainTranslationOptions(TranslationOptions):
-    fields = ('description',)
-
-
-@register(About)
-class AboutTranslationOptions(TranslationOptions):
-    fields = ('title', 'description')
+    fields = ('title', 'description', 'title_address', 'title_phone')
 
 
 @register(AboutUs)
 class AboutUsTranslationOptions(TranslationOptions):
-    fields = ('title', 'description')
+    fields = ('label', 'title', 'description')
 
 
 @register(BestSeller)
 class BestSellerTranslationOptions(TranslationOptions):
-    fields = ('title', 'description')
+    fields = ('label', 'title', 'description')
+
+
+@register(Menu)
+class CategoryTranslationOptions(TranslationOptions):
+    fields = ('label', 'title')
+
+
+@register(Category)
+class CategoryTranslationOptions(TranslationOptions):
+    fields = ('category_name',)
 
 
 @register(Meal)
 class MealTranslationOptions(TranslationOptions):
-    fields = ('title', 'description')
+    fields = ('title', 'description', 'ingredient')
+
+
+@register(Supplement)
+class SupplementTranslationOptions(TranslationOptions):
+    fields = ('supplement_name',)
 
 
 @register(SupplementItem)
@@ -33,6 +44,16 @@ class SupplementItemTranslationOptions(TranslationOptions):
     fields = ('item',)
 
 
+@register(RestaurantImage)
+class RestaurantImageTranslationOptions(TranslationOptions):
+    fields = ('title',)
+
+
 @register(RestaurantInfo)
 class RestaurantInfoTranslationOptions(TranslationOptions):
-    fields = ('title',)
+    fields = ('label', 'title', 'title_contact')
+
+
+@register(Day)
+class DayTranslationOptions(TranslationOptions):
+    fields = ('day',)

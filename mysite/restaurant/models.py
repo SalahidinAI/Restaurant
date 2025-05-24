@@ -1,77 +1,66 @@
 from django.db import models
-from multiselectfield import MultiSelectField
 from phonenumber_field.modelfields import PhoneNumberField
 
 
 class Main(models.Model):
+    title = models.CharField(max_length=32)
     image = models.ImageField(upload_to='main_page_image/')
     restaurant_name = models.CharField(max_length=32)
     description = models.TextField()
+    title_address = models.CharField(max_length=64)
     address = models.CharField(max_length=64)
+    title_phone = models.CharField(max_length=32)
     phone = PhoneNumberField(region='KG')
 
 
-class About(models.Model):
+class AboutUs(models.Model):
+    label = models.CharField(max_length=32)
     title = models.CharField(max_length=64)
     description = models.TextField()
     image1 = models.ImageField(upload_to='about_images/')
     image2 = models.ImageField(upload_to='about_images/')
 
-    class Meta:
-        abstract = True
+
+class BestSeller(models.Model):
+    label = models.CharField(max_length=32)
+    title = models.CharField(max_length=64)
+    description = models.TextField()
+    image1 = models.ImageField(upload_to='about_images/')
+    image2 = models.ImageField(upload_to='about_images/')
 
 
-class AboutUs(About):
-    pass
+class Menu(models.Model):
+    label = models.CharField(max_length=32)
+    title = models.CharField(max_length=64)
 
 
-class BestSeller(About):
-    pass
-
-
-class MealImage(models.Model):
-    image = models.ImageField(upload_to='meal_images/')
+class Category(models.Model):
+    category_name = models.CharField(max_length=32)
 
 
 class Meal(models.Model):
     title = models.CharField(max_length=32)
     description = models.TextField()
+    ingredient = models.TextField()
     price = models.PositiveSmallIntegerField()
-    images = models.ForeignKey(MealImage, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    menu = models.ForeignKey(Menu, on_delete=models.CASCADE)
+
+
+class MealImage(models.Model):
+    image = models.ImageField(upload_to='meal_images/')
+    meal = models.ForeignKey(Meal, on_delete=models.CASCADE)
 
 
 class Supplement(models.Model):
-    supplement_items = models.ForeignKey(Meal, on_delete=models.CASCADE)
+    supplement_name = models.CharField(max_length=32)
+    meal = models.ForeignKey(Meal, on_delete=models.CASCADE)
 
 
 class SupplementItem(models.Model):
     item = models.CharField(max_length=32)
     price = models.PositiveSmallIntegerField()
-    supplements = models.ForeignKey(Supplement, on_delete=models.CASCADE)
-
-
-class Dessert(Meal):
-    pass
-
-
-class HotDrink(Meal):
-    pass
-
-
-class ColdDrink(Meal):
-    pass
-
-
-class NationalFood(Meal):
-    pass
-
-
-class EasternCuisine(Meal):
-    pass
-
-
-class FastFood(Meal):
-    pass
+    supplement = models.ForeignKey(Supplement, on_delete=models.CASCADE)
 
 
 class RestaurantImage(models.Model):
@@ -84,25 +73,23 @@ class Image(models.Model):
 
 
 class RestaurantInfo(models.Model):
+    label = models.CharField(max_length=32)
     title = models.CharField(max_length=64)
     region = models.CharField(max_length=128)
+    title_contact = models.CharField(max_length=32)
     phone = PhoneNumberField(region='KG')
     email = models.EmailField(unique=True)
+
+
+class Day(models.Model):
+    day = models.CharField(max_length=8)
 
 
 class Schedule(models.Model):
     start_time = models.TimeField()
     end_time = models.TimeField()
-    DAYS_CHOICES = (
-        ('пн', 'пн'),
-        ('вт', 'вт'),
-        ('ср', 'ср'),
-        ('чт', 'чт'),
-        ('пт', 'пт'),
-        ('сб', 'сб'),
-        ('вс', 'вс'),
-    )
-    working_days = MultiSelectField(choices=DAYS_CHOICES, max_length=16)
+    start_day = models.ForeignKey(Day, on_delete=models.CASCADE, related_name='day_start')
+    end_day = models.ForeignKey(Day, on_delete=models.CASCADE, related_name='day_end')
     restaurant = models.ForeignKey(RestaurantInfo, on_delete=models.CASCADE)
 
 

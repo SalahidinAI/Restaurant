@@ -8,11 +8,6 @@ class MainAPIView(generics.ListAPIView):
     serializer_class = MainSerializer
 
 
-# class AboutAPIView(generics.ListAPIView):
-#     queryset = About.objects.all()
-#     serializer_class = AboutSerializer
-
-
 class AboutUsAPIView(generics.ListAPIView):
     queryset = AboutUs.objects.all()
     serializer_class = AboutUsSerializer
@@ -21,6 +16,21 @@ class AboutUsAPIView(generics.ListAPIView):
 class BestSellerAPIView(generics.ListAPIView):
     queryset = BestSeller.objects.all()
     serializer_class = BestSellerSerializer
+
+
+class MenuAPIView(generics.ListAPIView):
+    queryset = Menu.objects.all()
+    serializer_class = MenuSerializer
+
+
+class CategoryAPIView(generics.ListAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+
+
+class MealAPIView(generics.ListAPIView):
+    queryset = Meal.objects.all()
+    serializer_class = MealSerializer
 
 
 class MealImageAPIView(generics.ListAPIView):
@@ -38,41 +48,6 @@ class SupplementAPIView(generics.ListAPIView):
     serializer_class = SupplementSerializer
 
 
-class MealAPIView(generics.ListAPIView):
-    queryset = Meal.objects.all()
-    serializer_class = MealSerializer
-
-
-class DessertAPIView(generics.ListAPIView):
-    queryset = Dessert.objects.all()
-    serializer_class = DessertSerializer
-
-
-class HotDrinkAPIView(generics.ListAPIView):
-    queryset = HotDrink.objects.all()
-    serializer_class = HotDrinkSerializer
-
-
-class ColdDrinkAPIView(generics.ListAPIView):
-    queryset = ColdDrink.objects.all()
-    serializer_class = ColdDrinkSerializer
-
-
-class NationalFoodAPIView(generics.ListAPIView):
-    queryset = NationalFood.objects.all()
-    serializer_class = NationalFoodSerializer
-
-
-class EasternCuisineAPIView(generics.ListAPIView):
-    queryset = EasternCuisine.objects.all()
-    serializer_class = EasternCuisineSerializer
-
-
-class FastFoodAPIView(generics.ListAPIView):
-    queryset = FastFood.objects.all()
-    serializer_class = FastFoodSerializer
-
-
 class ImageAPIView(generics.ListAPIView):
     queryset = Image.objects.all()
     serializer_class = ImageSerializer
@@ -83,17 +58,16 @@ class RestaurantImageAPIView(generics.ListAPIView):
     serializer_class = RestaurantImageSerializer
 
 
-class ScheduleAPIView(generics.ListAPIView):
-    queryset = Schedule.objects.all()
-    serializer_class = ScheduleSerializer
-
-
 class RestaurantInfoAPIView(generics.ListAPIView):
     queryset = RestaurantInfo.objects.all()
     serializer_class = RestaurantInfoSerializer
 
 
+class ScheduleAPIView(generics.ListAPIView):
+    queryset = Schedule.objects.all()
+    serializer_class = ScheduleSerializer
+
+
 class ContactAPIView(generics.ListAPIView):
     queryset = Contact.objects.all()
     serializer_class = ContactSerializer
-

@@ -8,12 +8,6 @@ class MainSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class AboutSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = About
-        fields = '__all__'
-
-
 class AboutUsSerializer(serializers.ModelSerializer):
     class Meta:
         model = AboutUs
@@ -23,6 +17,24 @@ class AboutUsSerializer(serializers.ModelSerializer):
 class BestSellerSerializer(serializers.ModelSerializer):
     class Meta:
         model = BestSeller
+        fields = '__all__'
+
+
+class MenuSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Menu
+        fields = '__all__'
+
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = '__all__'
+
+
+class MealSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Meal
         fields = '__all__'
 
 
@@ -44,48 +56,6 @@ class SupplementSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class MealSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Meal
-        fields = '__all__'
-
-
-class DessertSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Dessert
-        fields = '__all__'
-
-
-class HotDrinkSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = HotDrink
-        fields = '__all__'
-
-
-class ColdDrinkSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = ColdDrink
-        fields = '__all__'
-
-
-class NationalFoodSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = NationalFood
-        fields = '__all__'
-
-
-class EasternCuisineSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = EasternCuisine
-        fields = '__all__'
-
-
-class FastFoodSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = FastFood
-        fields = '__all__'
-
-
 class ImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Image
@@ -98,15 +68,21 @@ class RestaurantImageSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class ScheduleSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Schedule
-        fields = '__all__'
-
-
 class RestaurantInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = RestaurantInfo
+        fields = '__all__'
+
+
+class DaySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Day
+        fields = '__all__'
+
+
+class ScheduleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Schedule
         fields = '__all__'
 
 
