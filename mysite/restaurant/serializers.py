@@ -20,6 +20,12 @@ class BestSellerSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class BestSellerImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BestSellerImage
+        fields = '__all__'
+
+
 class MenuSerializer(serializers.ModelSerializer):
     class Meta:
         model = Menu

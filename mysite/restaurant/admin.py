@@ -42,22 +42,9 @@ class RestaurantInfoAdmin(TranslationAdmin, GeneralMedia):
     pass
 
 
-class ImageInline(admin.TabularInline):
-    model = Image
-    extra = 1
-
-
-class RestaurantImageAdmin(admin.ModelAdmin):
-    inlines = [ImageInline]
-
-
 class SupplementItemInline(TranslationInlineModelAdmin, admin.TabularInline, GeneralMedia):
     model = SupplementItem
     extra = 1
-
-
-class SupplementAdmin(admin.ModelAdmin):
-    inlines = [SupplementItemInline]
 
 
 @admin.register(AboutUs)
@@ -65,8 +52,14 @@ class AboutUsAdmin(TranslationAdmin, GeneralMedia):
     pass
 
 
+class BestSellerImageInline(admin.TabularInline):
+    model = BestSellerImage
+    extra = 1
+
+
 @admin.register(BestSeller)
 class BestSellerAdmin(TranslationAdmin, GeneralMedia):
+    inlines = [BestSellerImageInline]
     pass
 
 
@@ -85,7 +78,19 @@ class MenuAdmin(TranslationAdmin, GeneralMedia):
     pass
 
 
-admin.site.register(Supplement, SupplementAdmin)
-# admin.site.register(Menu)
+class ImageInline(admin.TabularInline):
+    model = Image
+    extra = 1
+
+
+@admin.register(RestaurantImage)
+class RestaurantImageAdmin(TranslationAdmin, GeneralMedia):
+    inlines = [ImageInline]
+
+
+@admin.register(Supplement)
+class SupplementAdmin(TranslationAdmin, GeneralMedia):
+    inlines = [SupplementItemInline]
+
+
 admin.site.register(Contact)
-admin.site.register(RestaurantImage, RestaurantImageAdmin)

@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'multiselectfield',
     "phonenumber_field",
     'nested_admin',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [

@@ -1,7 +1,7 @@
 from .models import (Main, Menu, Day, Meal, Category, SupplementItem,
                      RestaurantImage, Supplement, RestaurantInfo, AboutUs,
                      BestSeller)
-from modeltranslation.translator import TranslationOptions,register
+from modeltranslation.translator import TranslationOptions, register
 
 
 @register(Main)
@@ -51,7 +51,7 @@ class RestaurantImageTranslationOptions(TranslationOptions):
 
 @register(RestaurantInfo)
 class RestaurantInfoTranslationOptions(TranslationOptions):
-    fields = ('label', 'title', 'title_contact')
+    fields = ('label', 'title', 'title_region', 'title_schedule', 'title_contact')
 
 
 @register(Day)
