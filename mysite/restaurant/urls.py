@@ -10,5 +10,7 @@ urlpatterns = [
     path('category/<int:pk>/', CategoryDetailAPIView.as_view(), name='category_detail'),
     path('interior/', RestaurantImageAPIView.as_view(), name='interior_list'),
     path('info/', RestaurantInfoAPIView.as_view(), name='info_list'),
-    path('contact/', ContactAPIView.as_view(), name='contact_list'),
+    path('contact/', ContactListAPIView.as_view(), name='contact_list'),
+    path('contact/<int:pk>/', ContactDetailAPIView.as_view(), name='contact_detail'),
+    path('contact/create/', ContactCreateAPIView.as_view(), name='contact_create'),
 ]

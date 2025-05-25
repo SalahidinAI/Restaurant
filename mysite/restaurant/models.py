@@ -145,7 +145,7 @@ class Schedule(models.Model):
 
 class Contact(models.Model):
     name = models.CharField(max_length=32)
-    phone = PhoneNumberField(region='KG')
+    phone = PhoneNumberField(region='KG', unique=True)
 
     def __str__(self):
         return f'{self.name}'
