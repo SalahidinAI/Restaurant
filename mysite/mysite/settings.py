@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'nested_admin',
     'drf_yasg',
     'corsheaders',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -151,6 +152,10 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}
 
 # CORS_ALLOWED_ORIGINS = [
 #     "https://example.com",

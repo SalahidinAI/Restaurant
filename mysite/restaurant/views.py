@@ -1,6 +1,7 @@
 from rest_framework import generics
 from .models import *
 from .serializers import *
+from rest_framework import filters
 
 
 class MainAPIView(generics.ListAPIView):
@@ -36,6 +37,8 @@ class CategoryDetailAPIView(generics.RetrieveAPIView):
 class MealAPIView(generics.ListAPIView):
     queryset = Meal.objects.all()
     serializer_class = MealSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['title', ]
 
 
 class RestaurantImageAPIView(generics.ListAPIView):

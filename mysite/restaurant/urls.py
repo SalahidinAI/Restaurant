@@ -13,4 +13,5 @@ urlpatterns = [
     path('contact/', ContactListAPIView.as_view(), name='contact_list'),
     path('contact/<int:pk>/', ContactDetailAPIView.as_view(), name='contact_detail'),
     path('contact/create/', ContactCreateAPIView.as_view(), name='contact_create'),
+    path('meal/', MealAPIView.as_view(), name='meal_list'),
 ]
