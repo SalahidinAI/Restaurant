@@ -2,6 +2,7 @@ asgiref==3.8.1
 click==8.2.1
 Django==5.2.1
 django-cors-headers==4.7.0
+django-filter==25.1
 django-modeltranslation==0.19.14
 django-multiselectfield==0.1.13
 django-nested-admin==4.1.1
@@ -21,3 +22,4 @@ PyYAML==6.0.2
 sqlparse==0.5.3
 uritemplate==4.1.1
 uvicorn==0.34.2
+
