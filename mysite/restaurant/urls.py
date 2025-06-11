@@ -15,3 +15,4 @@ urlpatterns = [
     path('contact/create/', ContactCreateAPIView.as_view(), name='contact_create'),
     path('meal/', MealAPIView.as_view(), name='meal_list'),
 ]
+
