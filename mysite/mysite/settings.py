@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'nested_admin',
     'drf_yasg',
     'corsheaders',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
